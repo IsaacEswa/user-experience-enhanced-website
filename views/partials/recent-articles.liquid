@@ -1,0 +1,35 @@
+<section class="recent-articles">
+    <h2>Recente artikelen</h2>
+    <div class="sidebar-articles">
+
+        {% assign latest = stories %}
+
+        {% for story in latest limit:3 %}
+
+        <a href="/{{ story.district }}/{{ story.slug }}" class="single-article-link">
+            <article>
+
+                {% if story.cover %}
+                <img src="https://fdnd-agency.directus.app/assets/{{ story.cover }}" alt="">
+                {% else %}
+                <img src="/assets/Compact_Blurple_{{ story.district }}.png" alt="Geen afbeelding beschikbaar">
+                {% endif %}
+
+                <div class="content-side">
+                    <div class="information">
+                        <time datetime="">{{ story.date | date: "%d-%m-%Y" }}</time>
+                        <svg width="5" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"><!--!Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                            <path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0z" />
+                        </svg>
+                        <span>{{ story.district }}</span>
+                    </div>
+                    <h3>{{ story.title }}</h3>
+                </div>
+            </article>
+        </a>
+
+        {% endfor %}
+
+    </div>
+</section>

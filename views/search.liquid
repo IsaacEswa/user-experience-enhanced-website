@@ -1,0 +1,58 @@
+{% render 'partials/head.liquid' %}
+
+<main>
+    <section class="main-content">
+
+        <h2 class="search-result">Zoekresultaten voor "{{ search }}"</h2>
+        <p class="search-count"><b>{{ stories | size }}</b> artikel(en) gevonden</p>
+
+
+
+        {% assign districts = "algemeen,nieuw-west,zuidoost,oost" | split: "," %}
+
+        {% for district in districts %}
+        {% assign district_stories = stories | where: "district", district %}
+
+        {% if district_stories.size > 0 %}
+        <section class="search-articles">
+
+
+            {% comment %} <div class="home-district-top"> {% endcomment %}
+                <h2>{{ district | capitalize }}</h2>
+                {% comment %} <a href="/{{ district }}">Alles bekijken →</a> {% endcomment %}
+                {% comment %}
+            </div> {% endcomment %}
+
+            <div class="district-articles {{ district }}">
+                {% for story in district_stories %}
+                <a href="/{{ story.district }}/{{ story.slug }}" class="single-article-link">
+
+                    <article class="single-article {{ district }}">
+                        {% if story.cover %}
+                        <img class="article-cover" src="https://fdnd-agency.directus.app/assets/{{ story.cover }}"
+                            alt="">
+                        {% else %}
+                        <img class="article-cover fallback" src="/assets/Compact_Blurple_{{ district }}.png"
+                            alt="Geen afbeelding beschikbaar">
+                        {% endif %}
+
+                        <div class="article-card-content">
+                            <time class="article-date" datetime="{{ story.date }}">
+                                {{ story.date | date: "%d-%m-%Y" }}
+                            </time>
+                            <h3 class="article-title">{{ story.title }}</h3>
+                        </div>
+                    </article>
+
+                </a>
+                {% endfor %}
+            </div>
+
+        </section>
+        {% endif %}
+        {% endfor %}
+
+    </section>
+</main>
+
+{% render 'partials/foot.liquid' %}

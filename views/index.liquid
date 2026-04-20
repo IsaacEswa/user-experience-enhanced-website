@@ -1,0 +1,71 @@
+{% render 'partials/head.liquid' %}
+
+
+<main class="home-main">
+
+    <section class="main-content">
+
+        {% assign latest = stories[0] %}
+        <a href="/{{ latest.district }}/{{ latest.slug }}" class="single-article-link">
+            <article class="featured-article overlay"
+                style="background-image: url('https://fdnd-agency.directus.app/assets/{{ latest.cover }}');">
+                <div class="featured-article-content">
+                    <div class="featured-article-information">
+                        <span>Laatste nieuws</span>
+                        <div class="featured-article-date">
+                            <time datetime="{{ latest.date }}">{{ latest.date | date: "%d-%m-%Y" }}</time>
+                        </div>
+                    </div>
+                    <h3>{{ latest.title }}</h3>
+                </div>
+            </article>
+        </a>
+
+        {% assign district = "algemeen,nieuw-west,zuidoost,oost" | split: "," %}
+
+        {% for district in district %}
+        <section class="homepage-articles">
+
+            <div class="homepage-district-top">
+                <h2>{{ district | capitalize }}</h2>
+                <a href="/{{ district }}">Alles bekijken →</a>
+            </div>
+
+            <div class="district-articles {{ district }}">
+                {% assign district_stories = stories | where: "district", district %}
+
+                {% for story in district_stories limit:3 %}
+
+                <a href="/{{ story.district }}/{{ story.slug }}" class="single-article-link">
+                    <article class="single-article {{ district }}">
+                        {% if story.cover %}
+                        <img class="article-cover" src="https://fdnd-agency.directus.app/assets/{{ story.cover }}"
+                            alt="">
+                        {% else %}
+                        <img class="article-cover fallback" src="/assets/Compact_Blurple_{{ district }}.png"
+                            alt="Geen afbeelding beschikbaar">
+                        {% endif %}
+
+                        <div class="article-card-content">
+                            <time class="article-date" datetime="{{ story.date }}">{{ story.date | date: "%d-%m-%Y"
+                                }}</time>
+                            <h3 class="article-title">{{ story.title }}</h3>
+                        </div>
+                    </article>
+                </a>
+
+                {% endfor %}
+            </div>
+        </section>
+        {% endfor %}
+
+    </section>
+
+    <aside class="sticky-sidebar">
+        {% render 'partials/recent-articles.liquid', latest: latest, district: district, stories: stories %}
+        {% render 'partials/archive.liquid' %}
+    </aside>
+
+</main>
+
+{% render 'partials/foot.liquid' %}

@@ -1,0 +1,307 @@
+@font-face {
+    font-family: "Arial BC";
+    src: url('../fonts/BuurtCampusArial-Bold.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+:root {
+    --primary-color: #bf410b;
+    --primary-color-lighter: #FFE4D8;
+    --secondary-color: #34356A;
+
+    --nieuw-west: #4a5b18;
+    --oost: #34356A;
+    --zuidoost: #005D66;
+    --algemeen: #F1F1F1;
+
+    --dark-text: #1E1E1E;
+    --light-text: #F1F1F1;
+
+    --light-background: #F1F1F1;
+    --body-background: #FFFFFF;
+
+    --paddingsidesMobile: 0 15px;
+
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --body-background: #000000;
+        --dark-text: #F1F1F1;
+        --light-text: #1E1E1E;
+
+        --primary-color: #F9C19D;
+        --secondary-color: #B3BCD0;
+
+        --nieuw-west: #8EA34B;
+        --oost: #B3BCD0;
+        --zuidoost: #699da2;
+        --algemeen: #262626;
+    }
+
+}
+
+body {
+    line-height: 1.5;
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+    /* 16 → 18 */
+    background-color: var(--body-background);
+}
+
+main {
+    margin-top: 3em;
+
+}
+
+section {
+    padding: var(--paddingsidesMobile);
+    margin-bottom: 3em;
+}
+
+article,
+article img {
+    border-radius: 20px;
+}
+
+h1 {
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    line-height: 1.3;
+}
+
+h2 {
+    /* font-size: clamp(1.75rem, 3vw, 2rem); */
+    /* 28 → 32 */
+    font-size: 1.75rem;
+    color: var(--dark-text);
+    padding-bottom: .5em;
+}
+
+h3 {
+    /* font-size: clamp(1.375rem, 3vw, 1.375rem); */
+    /* 22 → 28 */
+    font-size: 1.375rem;
+    line-height: 1.3;
+}
+
+span,
+time {
+    /* font-size: clamp(1rem, 2.5vw, 1.125rem); */
+    /* 16 → 18 */
+    font-size: 1rem;
+    font-weight: bold;
+
+    color: var(--dark-text);
+
+}
+
+input,
+textarea {
+    padding: 1em;
+    background-color: var(--algemeen);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+
+    input,
+    textarea {
+        border: 1px solid var(--dark-text);
+        color: var(--dark-text);
+    }
+}
+
+select {
+    height: 3em;
+}
+
+/* article cards */
+.district-articles {
+    /* layout voor mobiel */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    padding-top: .5em;
+
+    .article-card-content {
+        padding: 1em 1.5em;
+        gap: 0.7em;
+        display: flex;
+        flex-direction: column;
+
+        .article-intro {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            /* number of lines to show */
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+    }
+}
+
+.district-articles.algemeen .single-article {
+    background-color: var(--algemeen);
+
+    time {
+        color: var(--primary-color);
+    }
+
+    h3 {
+        color: var(--secondary-color);
+    }
+}
+
+.district-articles.nieuw-west .single-article {
+    background-color: var(--nieuw-west);
+
+    time {
+        color: var(--light-text);
+    }
+
+    h3 {
+        color: var(--light-text);
+    }
+}
+
+.single-article {
+    height: 100%;
+    padding: .5em;
+
+    gap: 0.5em;
+    display: flex;
+    flex-direction: column;
+
+    .article-cover {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+
+        @media (min-width: 768px) {
+            height: 250px;
+        }
+    }
+
+    .article-cover.fallback {
+        object-fit: contain;
+        background: var(--algemeen);
+    }
+}
+
+/* single article styling per district */
+.single-article.algemeen {
+    background-color: var(--algemeen);
+
+    time {
+        color: var(--primary-color);
+    }
+
+    h3 {
+        color: var(--secondary-color);
+    }
+
+    p {
+        color: var(--dark-text);
+    }
+}
+
+.single-article.nieuw-west {
+    background-color: var(--nieuw-west);
+
+    time {
+        color: var(--light-text);
+    }
+
+    h3 {
+        color: var(--light-text);
+    }
+
+    p {
+        color: var(--light-text);
+    }
+}
+
+.single-article.zuidoost {
+    background-color: var(--zuidoost);
+
+    time {
+        color: var(--light-text);
+    }
+
+    h3 {
+        color: var(--light-text);
+    }
+
+    p {
+        color: var(--light-text);
+    }
+}
+
+.single-article.oost {
+    background-color: var(--oost);
+
+    time {
+        color: var(--light-text);
+    }
+
+    h3 {
+        color: white;
+    }
+
+    p {
+        color: var(--light-text);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .single-article.oost h3 {
+        color: var(--light-text);
+    }
+}
+
+
+/* BUTTONS */
+.primary-button {
+    padding: 0.5em 1.2em;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+    color: var(--light-text);
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.primary-button:active {
+    background-color: green;
+}
+
+/* DOELGROEP FILTER */
+.targetgroup-filter-container {
+
+    select {
+        appearance: none;
+        /* verwijdert browser styling */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        padding: 5px 10px;
+        border-radius: 10px;
+        background-color: var(--nieuw-west);
+        cursor: pointer;
+        color: white;
+    }
+}
+
+.single-article-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}

@@ -1,0 +1,42 @@
+<footer>
+    <section class="footer-col-01">
+        {% comment %} <img class="footer-logo" src="/assets/Compact_Blurple_algemeen.png" alt=""> {% endcomment %}
+        <a href="/">
+            Buurtcampus <br> <span>krant</span>
+        </a>
+    </section>
+    <section class="footer-col-02">
+        <h2>Locaties</h2>
+        <ul>
+            {% assign districts = "algemeen,nieuw-west,zuidoost,oost" | split: "," %}
+            {% for district in districts %}
+            <li><a href="/{{ district }}"> {{ district | capitalize }} </a></li>
+            {% endfor %}
+        </ul>
+    </section>
+    <section class="footer-col-03">
+        <h2>Edities</h2>
+
+    </section>
+    <section class="footer-col-04">
+        <h2>Nieuwsbrief</h2>
+
+
+        <form class="newsletter-form" action="#" method="post">
+            <label class="email-field" for="e-mail">
+                <span>Jouw e-mailadres *</span> <br>
+                <input name="e-mail" id="e-mail" type="email" placeholder="E-mailadres" required>
+            </label>
+
+            <button class="primary-button" type="submit">Aanmelden</button>
+
+        </form>
+    </section>
+</footer>
+
+
+<script src="/scripts/script.js"></script>
+<script src="/scripts/hamburgermenu.js"></script>
+</body>
+
+</html>

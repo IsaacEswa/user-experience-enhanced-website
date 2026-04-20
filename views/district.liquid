@@ -1,0 +1,85 @@
+{% render 'partials/head.liquid' %}
+
+<main class="district-main">
+
+    {% assign districts = "algemeen,nieuw-west,zuidoost,oost" | split: "," %}
+    {% if districts contains district %}
+
+    <section class="district-hero">
+        <h2>{{ district | capitalize }}</h2>
+
+        <div class="filter-and-sort">
+
+            <form action="/{{ district }}" method="GET">
+                <label class="targetgroup-select-container">
+                    <span>Artikelen voor</span>
+
+                    <select id="targetgroup-select" name="target_group">
+                        <option value="" {% if selectedTargetGroup=="" %}selected{% endif %}>Iedereen
+                        </option>
+                        <option value="wijkbewoner" {% if selectedTargetGroup=="wijkbewoner" %}selected{% endif %}>
+                            Wijkbewoner
+                        </option>
+                        <option value="student" {% if selectedTargetGroup=="student" %}selected{% endif %}>Student
+                        </option>
+                        <option value="wijkpartner" {% if selectedTargetGroup=="wijkpartner" %}selected{% endif %}>
+                            Wijkpartner
+                        </option>
+                        <option value="HvA medewerker" {% if selectedTargetGroup=="HvA medewerker" %}selected{% endif
+                            %}>HvA
+                            medewerker</option>
+                    </select>
+                </label>
+
+                <label class="sort-select-container">
+                    <span>Sorteren op</span>
+
+                    <select id="sort-select" name="date">
+                        <option value="" {% if selectedSort=="" %}selected{% endif %} disabled hidden>kies een volgorde
+                        </option>
+                        <option value="oud-nieuw" {% if selectedSort=="oud-nieuw" %}selected{% endif %}>
+                            Oud naar nieuw</option>
+                        <option value="nieuw-oud" {% if selectedSort=="nieuw-oud" %}selected{% endif %}>Nieuw naar oud
+                        </option>
+                    </select>
+                </label>
+
+                <input id="filter-button" type="submit" value="filter">
+            </form>
+
+        </div>
+
+    </section>
+
+    {% else %}
+    <h2>404</h2>
+    {% endif %}
+
+    <section class="district-articles">
+        <p><b>{{ stories | size }}</b> artikel(en) gevonden</p>
+
+        <div class="districtpage-articles-container">
+            {% for story in stories %}
+            <a href="/{{ story.district }}/{{ story.slug }}" class="single-article-link">
+                <article class="single-article {{ story.district}}">
+                    {% if story.cover %}
+                    <img class="article-cover" src="https://fdnd-agency.directus.app/assets/{{ story.cover }}" alt="">
+                    {% else %}
+                    <img class="article-cover fallback" src="/assets/Compact_Blurple_{{ district }}.png"
+                        alt="Geen afbeelding beschikbaar">
+                    {% endif %} <div class="article-card-content">
+                        <time class="article-date" datetime="{{ story.date }}">{{ story.date | date: "%d-%m-%Y"
+                            }}</time>
+                        <h3 class="article-title">{{ story.title }}</h3>
+                        <p class="article-intro">{{ story.intro }}</p>
+                    </div>
+                </article>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+
+</main>
+
+
+{% render 'partials/foot.liquid' %}

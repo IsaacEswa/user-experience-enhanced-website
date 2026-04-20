@@ -1,0 +1,20 @@
+<section class="targetgroup-filter-container">
+    <form id="targetgroup-form" action="/{{ district }}" method="GET">
+        <label>
+            Artikelen voor
+            <select name="target_group" id="targetgroup-select">
+                <option value="" {% if selectedTargetGroup=="" %}selected{% endif %}>Iedereen</option>
+                <option value="wijkbewoner" {% if selectedTargetGroup=="wijkbewoner" %}selected{% endif %}>wijkbewoner
+                </option>
+                <option value="student" {% if selectedTargetGroup=="student" %}selected{% endif %}>student</option>
+                <option value="wijkpartner" {% if selectedTargetGroup=="wijkpartner" %}selected{% endif %}>wijkpartner
+                </option>
+                <option value="HvA medewerker" {% if selectedTargetGroup=="HvA medewerker" %}selected{% endif %}>HvA
+                    medewerker</option>
+            </select>
+        </label>
+
+        <input id="filter-button" type="submit" value="filter">
+
+    </form>
+</section>
