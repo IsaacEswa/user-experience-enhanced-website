@@ -648,12 +648,6 @@ header::after {
         color: var(--light-text);
     }
 
-
-
-
-
-    color: var(--light-text);
-
     .back-link {
         color: var(--light-text);
 
@@ -672,6 +666,13 @@ header::after {
 
     .share-socials::before {
         background: var(--light-text);
+    }
+}
+
+.details-container.algemeen {
+    .article-body * {
+        color: var(--dark-text);
+
     }
 }
 
