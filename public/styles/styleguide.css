@@ -283,6 +283,12 @@ select {
     background-color: green;
 }
 
+button.loading {
+    /* background-color: var(--primary-color-lighter); */
+    cursor: not-allowed;
+    font-style: italic;
+}
+
 /* DOELGROEP FILTER */
 .targetgroup-filter-container {
 

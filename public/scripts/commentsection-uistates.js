@@ -1,9 +1,3 @@
-// document.getElementById('filter-button').hidden = true;
-// document.getElementById('targetgroup-select').addEventListener('change', function () { this.form.submit() });
-// document.getElementById('sort-select').addEventListener('change', function () { this.form.submit() })
-
-
-
 // Script voor het commentaarformulier op de details pagina
 const articleForm = document.querySelector('.article-comment-form')
 console.log('formulier:', articleForm)
@@ -19,7 +13,7 @@ articleForm.addEventListener('submit', async function (event) {
 
     //Loading state tonen:
     formButton.classList.add('loading')
-    formButton.textContent = 'loading...'
+    formButton.textContent = 'Verzenden...'
 
     //formdata voorbereiden:
     let formData = new FormData(articleForm);
@@ -54,5 +48,7 @@ articleForm.addEventListener('submit', async function (event) {
     // Nu kan je waarschijnlijk de Loading state vervangen door een Success state
     console.log("Loading state weghalen")
     formButton.classList.remove('loading')
-    formButton.textContent = 'Verzenden'
+    formButton.textContent = 'Verzonden'
+
+    articleForm.reset()
 })

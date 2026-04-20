@@ -716,6 +716,7 @@ header::after {
             display: flex;
             flex-direction: column-reverse;
             gap: 1em;
+            list-style: none;
         }
 
 

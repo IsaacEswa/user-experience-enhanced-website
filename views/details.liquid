@@ -64,18 +64,16 @@
 
             <form class="article-comment-form" action="/{{ district }}/{{ slug }}/comment/" method="post">
                 <input type="hidden" name="story" value="{{ story.id }}">
-                <fieldset>
-                    <label class="comments-field" for="name">
-                        <span>Jouw naam *</span>
-                        <input name="name" id="name" type="text" placeholder="Voornaam + achternaam" required>
-                    </label>
+                <label class="comments-field" for="name">
+                    <span>Jouw naam *</span>
+                    <input name="name" id="name" type="text" placeholder="Voornaam + achternaam" required>
+                </label>
 
-                    <label class="comments-field" for="comment">
-                        <span>Jouw bericht *</span>
-                        <textarea name="comment" id="comment" rows="3" placeholder="Ik had een opmerking over..."
-                            required></textarea>
-                    </label>
-                </fieldset>
+                <label class="comments-field" for="comment">
+                    <span>Jouw bericht *</span>
+                    <textarea name="comment" id="comment" rows="3" placeholder="Ik had een opmerking over..."
+                        required></textarea>
+                </label>
 
                 <button class="primary-button" type="submit">Verzenden</button>
             </form>
@@ -90,7 +88,7 @@
         <div class="recent-comments-container">
             <ul>
                 {% if story.comments.size > 0 %}
-                {% for comment in story.comments limit:3 %}
+                {% for comment in story.comments limit:5 %}
                 <li>
                     <article class="single-comment">
                         <span class="comment-name">{{ comment.name }}</span>
