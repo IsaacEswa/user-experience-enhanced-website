@@ -279,14 +279,20 @@ select {
     cursor: pointer;
 }
 
-.primary-button:active {
+/* .primary-button:active {
     background-color: green;
-}
+} */
 
 button.loading {
     /* background-color: var(--primary-color-lighter); */
     cursor: not-allowed;
     font-style: italic;
+    opacity: 0.8;
+}
+
+button.success {
+    background-color: var(--zuidoost);
+
 }
 
 /* DOELGROEP FILTER */

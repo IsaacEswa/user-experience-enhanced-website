@@ -1,7 +1,7 @@
 // Script voor het commentaarformulier op de details pagina
+// 1. const eerst het formulier, de submit button en de comment container
 const articleForm = document.querySelector('.article-comment-form')
-console.log('formulier:', articleForm)
-
+// console.log('formulier:', articleForm)
 const formButton = document.querySelector('.article-comment-form button')
 const articleComments = document.querySelector('.recent-comments-container ul')
 
@@ -46,9 +46,19 @@ articleForm.addEventListener('submit', async function (event) {
     }
     // Loading state weghalen
     // Nu kan je waarschijnlijk de Loading state vervangen door een Success state
-    console.log("Loading state weghalen")
+    // console.log("Loading state weghalen")
     formButton.classList.remove('loading')
+    formButton.classList.add('success')
     formButton.textContent = 'Verzonden'
 
     articleForm.reset()
+
+    // Na 2 seconden terug naar normale state
+    setTimeout(() => {
+
+        formButton.classList.remove('success')
+
+        formButton.textContent = 'Verzenden'
+
+    }, 2000)
 })
