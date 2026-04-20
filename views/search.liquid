@@ -16,12 +16,7 @@
         {% if district_stories.size > 0 %}
         <section class="search-articles">
 
-
-            {% comment %} <div class="home-district-top"> {% endcomment %}
-                <h2>{{ district | capitalize }}</h2>
-                {% comment %} <a href="/{{ district }}">Alles bekijken →</a> {% endcomment %}
-                {% comment %}
-            </div> {% endcomment %}
+            <h2>{{ district | capitalize }}</h2>
 
             <div class="district-articles {{ district }}">
                 {% for story in district_stories %}

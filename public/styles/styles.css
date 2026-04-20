@@ -712,9 +712,12 @@ header::after {
 
 .recent-comments {
     .recent-comments-container {
-        display: flex;
-        flex-direction: column-reverse;
-        gap: 1em;
+        ul {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 1em;
+        }
+
 
         .single-comment {
             padding: 1em;

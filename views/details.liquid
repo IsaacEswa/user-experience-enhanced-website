@@ -6,7 +6,6 @@
 
         <a class="back-link" href="/{{ district }}">← Terug naar overzicht</a>
 
-        {% comment %} {% assign story = stories %} {% endcomment %}
 
         {% if story.cover %}
         <img class="single-article-cover" src="https://fdnd-agency.directus.app/assets/{{ story.cover }}" alt="">
@@ -63,19 +62,20 @@
         <div class="left-side">
             <h2>Laat je bericht achter</h2>
 
-            <form action="/{{ district }}/{{ slug }}/comment/" method="post">
+            <form class="article-comment-form" action="/{{ district }}/{{ slug }}/comment/" method="post">
                 <input type="hidden" name="story" value="{{ story.id }}">
+                <fieldset>
+                    <label class="comments-field" for="name">
+                        <span>Jouw naam *</span>
+                        <input name="name" id="name" type="text" placeholder="Voornaam + achternaam" required>
+                    </label>
 
-                <label class="comments-field" for="name">
-                    <span>Jouw naam *</span>
-                    <input name="name" id="name" type="text" placeholder="Voornaam + achternaam " required>
-                </label>
-
-                <label class="comments-field" for="comment">
-                    <span>Jouw bericht *</span>
-                    <textarea name="comment" id="comment" rows="3" placeholder="Ik had een opmerking over..."
-                        required></textarea>
-                </label>
+                    <label class="comments-field" for="comment">
+                        <span>Jouw bericht *</span>
+                        <textarea name="comment" id="comment" rows="3" placeholder="Ik had een opmerking over..."
+                            required></textarea>
+                    </label>
+                </fieldset>
 
                 <button class="primary-button" type="submit">Verzenden</button>
             </form>
@@ -88,15 +88,19 @@
     <section class="recent-comments">
         <h2>Recente reacties</h2>
         <div class="recent-comments-container">
+            <ul>
+                {% if story.comments.size > 0 %}
+                {% for comment in story.comments limit:3 %}
+                <li>
+                    <article class="single-comment">
+                        <span class="comment-name">{{ comment.name }}</span>
+                        <p class="comment-text">{{ comment.comment }}</p>
+                    </article>
 
-            {% if story.comments.size > 0 %}
-            {% for comment in story.comments limit:3 %}
-            <article class="single-comment">
-                <span class="comment-name">{{ comment.name }}</span>
-                <p class="comment-text">{{ comment.comment }}</p>
-            </article>
-            {% endfor %}
-            {% else %}
+                </li>
+                {% endfor %}
+                {% else %}
+            </ul>
             <div class="empty-state">
                 <span>Nog geen reacties</span>
             </div>
@@ -135,6 +139,8 @@
         </div>
 
     </section>
+
+
 
 </main>
 
