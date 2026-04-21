@@ -483,6 +483,15 @@ header::after {
 /* ----- SEARCH PAGE STYLING ----- */
 .search-articles {
     margin-top: 3em;
+
+    @media (min-width: 768px) {
+
+        .district-articles {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 1.5rem;
+        }
+    }
 }
 
 .search-result,
