@@ -104,7 +104,8 @@ a {
     transition: .2s ease;
 }
 
-main a:hover {
+main a:hover,
+header li a:hover {
     opacity: 0.8;
 }
 

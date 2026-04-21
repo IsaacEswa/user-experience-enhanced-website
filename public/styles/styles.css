@@ -37,7 +37,6 @@ header {
 
     #close-icon {
         text-align: right;
-        /* padding-right: 15px; */
         margin-top: 15px;
         display: flex;
         align-self: end;
@@ -103,16 +102,6 @@ header::after {
         margin-bottom: 0.5em;
     }
 
-    /* h3 {
-        font-weight: normal;
-        font-size: 1em;
-
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
-        -webkit-box-orient: vertical;
-    } */
 }
 
 .sidebar.open {
@@ -281,7 +270,6 @@ header::after {
 
 
         @media (min-width: 768px) {
-            /* flex-direction: row; */
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             gap: 1.5rem;
@@ -472,15 +460,7 @@ header::after {
             grid-column: span 2;
         }
 
-        /* .single-article-link:first-child .single-article.nieuw-west h3 {} */
     }
-
-    /* card image */
-    /* .article-cover {
-        height: 300px;
-        width: 100%;
-        object-fit: cover;
-    } */
 
     /* card content */
     .article-card-content {
@@ -529,8 +509,6 @@ header::after {
     gap: 1em;
     display: flex;
     flex-direction: column;
-    /* width: 60%; */
-    /* margin: auto; */
 
     @media (min-width: 768px) {
         width: 60%;
@@ -586,10 +564,6 @@ header::after {
 
         }
 
-        /* @media (min-width: 768px) {
-            width: 80%;
-            margin: auto;
-        } */
     }
 
     .share-socials {
@@ -776,22 +750,9 @@ footer {
 
     @media (min-width: 768px) {
         flex-direction: row;
-        /* gap: 2em; */
-
-        section {
-            /* flex: 1; */
-            /* width: 100%; */
-        }
     }
 
     .footer-col-01 {
-        /* .footer-logo {
-            width: 50%;
-            display: block;
-            margin: 0;
-            padding: 0;
-        } */
-
 
         a,
         a span {
