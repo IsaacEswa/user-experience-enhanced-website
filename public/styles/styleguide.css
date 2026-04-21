@@ -100,6 +100,15 @@ time {
 
 }
 
+a {
+    transition: .2s ease;
+}
+
+a:hover {
+    opacity: 0.8;
+
+}
+
 input,
 textarea {
     padding: 1em;
