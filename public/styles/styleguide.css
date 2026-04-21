@@ -104,9 +104,8 @@ a {
     transition: .2s ease;
 }
 
-a:hover {
+main a:hover {
     opacity: 0.8;
-
 }
 
 input,
