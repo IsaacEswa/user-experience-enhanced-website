@@ -62,12 +62,29 @@
             {% for story in stories %}
             <a href="/{{ story.district }}/{{ story.slug }}" class="single-article-link">
                 <article class="single-article {{ story.district}}">
+
                     {% if story.cover %}
+
+                    {% comment %} <picture>
+                        <source type="image/avif"
+                            srcset="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover&format=avif">
+
+                        <source type="image/webp"
+                            srcset="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover&format=webp">
+
+                        <img class="article-cover"
+                            src="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover" alt="">
+                    </picture> {% endcomment %}
+
                     <img class="article-cover" src="https://fdnd-agency.directus.app/assets/{{ story.cover }}" alt="">
                     {% else %}
+
                     <img class="article-cover fallback" src="/assets/Compact_Blurple_{{ district }}.png"
                         alt="Geen afbeelding beschikbaar">
-                    {% endif %} <div class="article-card-content">
+
+                    {% endif %}
+
+                    <div class="article-card-content">
                         <time class="article-date" datetime="{{ story.date }}">{{ story.date | date: "%d-%m-%Y"
                             }}</time>
                         <h3 class="article-title">{{ story.title }}</h3>
