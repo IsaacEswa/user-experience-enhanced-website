@@ -8,7 +8,7 @@
         {% assign latest = stories[0] %}
         <a href="/{{ latest.district }}/{{ latest.slug }}" class="single-article-link">
             <article class="featured-article overlay"
-                style="background-image: url('https://fdnd-agency.directus.app/assets/{{ latest.cover }}');">
+                style="background-image: url('https://fdnd-agency.directus.app/assets/{{ latest.cover.id }}');">
                 <div class="featured-article-content">
                     <div class="featured-article-information">
                         <span>Laatste nieuws</span>
@@ -43,26 +43,34 @@
                         {% comment %} <img class="article-cover"
                             src="https://fdnd-agency.directus.app/assets/{{ story.cover }}" alt=""> {% endcomment %}
 
+                        {% comment %} URL:
+                        1. https://fdnd-agency.directus.app/items/buurtcampuskrant_stories/?fields=cover.*
+                        2. https://fdnd-agency.directus.app/items/buurtcampuskrant_stories/?fields=cover.width
+                        {% endcomment %}
+
 
                         <picture>
                             <source type="image/avif"
-                                srcset="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover&format=avif">
+                                srcset="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&width={{ story.cover.width }}&height={{ story.cover.height }}&format=avif">
 
                             <source type="image/webp"
-                                srcset="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover&format=webp">
+                                srcset="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&width={{ story.cover.width }}&height={{ story.cover.height }}&format=webp">
 
                             <img class="article-cover"
-                                src="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover" alt="">
+                                src="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&width={{ story.cover.width }}&height={{ story.cover.height }}"
+                                alt="" loading="lazy">
                         </picture>
                         {% else %}
                         <img class="article-cover fallback" src="/assets/Compact_Blurple_{{ district }}.png"
                             alt="Geen afbeelding beschikbaar">
                         {% endif %}
 
+
                         <div class="article-card-content">
                             <time class="article-date" datetime="{{ story.date }}">{{ story.date | date: "%d-%m-%Y"
                                 }}</time>
                             <h3 class="article-title">{{ story.title }}</h3>
+
                         </div>
                     </article>
                 </a>
