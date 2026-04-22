@@ -10,7 +10,19 @@
             <article>
 
                 {% if story.cover %}
-                <img src="https://fdnd-agency.directus.app/assets/{{ story.cover }}" alt="">
+
+
+                <picture>
+                    <source type="image/avif"
+                        srcset="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover&format=avif">
+
+                    <source type="image/webp"
+                        srcset="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover&format=webp">
+
+                    <img src="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover" alt="">
+                </picture>
+
+
                 {% else %}
                 <img src="/assets/Compact_Blurple_{{ story.district }}.png" alt="Geen afbeelding beschikbaar">
                 {% endif %}

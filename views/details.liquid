@@ -93,6 +93,21 @@
         </div>
         <div class="right-side">
             <img src="/assets/buurtcampus_0012_pop-die-formulier-invult.png" alt="Formulier invullen">
+
+
+            <picture>
+                <source type="image/avif"
+                    srcset="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover&format=avif">
+
+                <source type="image/webp"
+                    srcset="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover&format=webp">
+
+                <img class="single-article-cover"
+                    src="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover" alt="">
+            </picture>
+
+
+
         </div>
     </section>
 
@@ -132,9 +147,18 @@
             <a href="/{{ story.district }}/{{ story.slug }}" class="single-article-link">
                 <article class="single-article {{ district }}">
                     {% if story.cover %}
-                    <img class="article-cover" src="https://fdnd-agency.directus.app/assets/{{ story.cover }}" alt="">
+                    <picture>
+                        <source type="image/avif"
+                            srcset="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover&format=avif">
+
+                        <source type="image/webp"
+                            srcset="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover&format=webp">
+
+                        <img class="single-article-cover"
+                            src="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover" alt="">
+                    </picture>
                     {% else %}
-                    <img class="article-cover fallback" src="/assets/Compact_Blurple_{{ district }}.png"
+                    <img class="single-article-cover fallback" src="/assets/Compact_Blurple_{{ district }}.png"
                         alt="Geen afbeelding beschikbaar">
                     {% endif %}
 
