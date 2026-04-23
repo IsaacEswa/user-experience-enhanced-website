@@ -51,14 +51,19 @@
 
                         <picture>
                             <source type="image/avif"
-                                srcset="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&width={{ story.cover.width }}&height={{ story.cover.height }}&format=avif">
+                                srcset="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&format=avif">
 
                             <source type="image/webp"
-                                srcset="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&width={{ story.cover.width }}&height={{ story.cover.height }}&format=webp">
+                                srcset="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&format=webp">
 
                             <img class="article-cover"
+                                src="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?width=300"
+                                width="{{ story.cover.width }}" height="{{ story.cover.height }}">
+
+                            {% comment %} <img class="article-cover"
                                 src="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&width={{ story.cover.width }}&height={{ story.cover.height }}"
-                                alt="" loading="lazy">
+                                alt="" loading="lazy"> {% endcomment %}
+
                         </picture>
                         {% else %}
                         <img class="article-cover fallback" src="/assets/Compact_Blurple_{{ district }}.png"
