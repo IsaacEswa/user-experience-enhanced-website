@@ -118,7 +118,7 @@
         <div class="recent-comments-container">
             <ul>
                 {% if story.comments.size > 0 %}
-                {% for comment in story.comments limit:5 %}
+                {% for comment in story.comments %}
                 <li>
                     <article class="single-comment">
                         <span class="comment-name">{{ comment.name }}</span>

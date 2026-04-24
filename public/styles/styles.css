@@ -720,6 +720,35 @@ header::after {
     }
 }
 
+/* .highlight {
+    opacity: 1;
+    animation: fade-out 3s ease-out;
+}
+
+@keyframes fade-out {
+    100% {
+        opacity: 0;
+    }
+} */
+
+.recent-comments-container li:first-child .single-comment {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: fadeIn 300ms ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     .single-comment .comment-name {
         color: var(--light-text);
