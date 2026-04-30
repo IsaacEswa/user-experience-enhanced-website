@@ -13,7 +13,8 @@ articleForm.addEventListener('submit', async function (event) {
 
     //Loading state tonen:
     formButton.classList.add('loading')
-    formButton.textContent = 'Verzenden...'
+    formButton.textContent = 'Bezig met verzenden...'
+    formButton.disabled = true // disabled attribute toevoegen
 
     //formdata voorbereiden:
     let formData = new FormData(articleForm);
@@ -48,8 +49,10 @@ articleForm.addEventListener('submit', async function (event) {
     // Nu kan je waarschijnlijk de Loading state vervangen door een Success state
     // console.log("Loading state weghalen")
     formButton.classList.remove('loading')
+    formButton.disabled = false // disabled attribute weghalen
+
     formButton.classList.add('success')
-    formButton.textContent = 'Verzonden'
+    formButton.textContent = 'Verzonden ✔'
 
     articleForm.reset()
 

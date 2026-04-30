@@ -315,7 +315,7 @@ select {
     background-color: green;
 } */
 
-button.loading {
+button:disabled {
     /* background-color: var(--primary-color-lighter); */
     cursor: not-allowed;
     font-style: italic;
