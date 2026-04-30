@@ -36,6 +36,9 @@
         --dark-text: #F1F1F1;
         --light-text: #1E1E1E;
 
+        --light-background: #1E1E1E;
+
+
         --primary-color: #F9C19D;
         --secondary-color: #B3BCD0;
 
@@ -139,7 +142,7 @@ select {
     gap: 1.5em;
     padding-top: .5em;
 
-    .article-card-content {
+    /* .article-card-content {
         padding: 1em 1.5em;
         gap: 0.7em;
         display: flex;
@@ -149,11 +152,10 @@ select {
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 2;
-            /* number of lines to show */
             line-clamp: 2;
             -webkit-box-orient: vertical;
         }
-    }
+    } */
 }
 
 .district-articles.algemeen .single-article {
@@ -166,6 +168,7 @@ select {
     h3 {
         color: var(--secondary-color);
     }
+
 }
 
 .district-articles.nieuw-west .single-article {
@@ -219,6 +222,11 @@ select {
     p {
         color: var(--dark-text);
     }
+
+    .article-targetgroup {
+        background-color: var(--primary-color);
+        color: var(--light-text);
+    }
 }
 
 .single-article.nieuw-west {
@@ -234,6 +242,11 @@ select {
 
     p {
         color: var(--light-text);
+    }
+
+    .article-targetgroup {
+        background-color: var(--light-background);
+        color: var(--dark-text);
     }
 }
 
@@ -251,6 +264,11 @@ select {
     p {
         color: var(--light-text);
     }
+
+    .article-targetgroup {
+        background-color: var(--primary-color-lighter);
+        color: black;
+    }
 }
 
 .single-article.oost {
@@ -266,6 +284,11 @@ select {
 
     p {
         color: var(--light-text);
+    }
+
+    .article-targetgroup {
+        background-color: var(--light-background);
+        color: var(--dark-text);
     }
 }
 

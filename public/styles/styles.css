@@ -253,7 +253,7 @@ header::after {
         gap: 1.5em;
         padding-top: .5em;
 
-        .article-card-content {
+        /* .article-card-content {
             padding: 1em 1.5em;
             gap: 0.7em;
             display: flex;
@@ -266,7 +266,7 @@ header::after {
                 line-clamp: 2;
                 -webkit-box-orient: vertical;
             }
-        }
+        } */
 
 
         @media (min-width: 768px) {
@@ -463,8 +463,7 @@ header::after {
 
     }
 
-    /* card content */
-    .article-card-content {
+    /* .article-card-content {
         padding: 1em 1.5em;
         gap: 0.7em;
         display: flex;
@@ -474,11 +473,10 @@ header::after {
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 2;
-            /* number of lines to show */
             line-clamp: 2;
             -webkit-box-orient: vertical;
         }
-    }
+    } */
 }
 
 /* ----- SEARCH PAGE STYLING ----- */
@@ -846,4 +844,29 @@ footer::before {
     background: var(--primary-color);
     width: 97%;
     margin: auto;
+}
+
+/* card content */
+.article-card-content {
+    padding: 1em 1.5em;
+    gap: 0.7em;
+    display: flex;
+    flex-direction: column;
+
+    .article-intro {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        /* number of lines to show */
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .article-targetgroup {
+        background: var(--primary-color);
+        padding: 5px 10px;
+        border-radius: 15px;
+        width: fit-content;
+        font-weight: normal;
+    }
 }
