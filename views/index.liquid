@@ -40,31 +40,23 @@
                     <article class="single-article {{ district }}">
                         {% if story.cover %}
 
-                        {% comment %} <img class="article-cover"
-                            src="https://fdnd-agency.directus.app/assets/{{ story.cover }}" alt=""> {% endcomment %}
-
-                        {% comment %} URL:
+                        {% comment %} API URL:
                         1. https://fdnd-agency.directus.app/items/buurtcampuskrant_stories/?fields=cover.*
                         2. https://fdnd-agency.directus.app/items/buurtcampuskrant_stories/?fields=cover.width
                         {% endcomment %}
 
-
                         <picture>
                             <source type="image/avif"
-                                srcset="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&format=avif">
+                                srcset="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&format=avif&width=400&quality=80">
 
                             <source type="image/webp"
-                                srcset="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&format=webp">
+                                srcset="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&format=webp&width=400&quality=80">
 
                             <img class="article-cover"
-                                src="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?width=300"
+                                src="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?width=400&quality=80"
                                 width="{{ story.cover.width }}" height="{{ story.cover.height }}">
-
-                            {% comment %} <img class="article-cover"
-                                src="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&width={{ story.cover.width }}&height={{ story.cover.height }}"
-                                alt="" loading="lazy"> {% endcomment %}
-
                         </picture>
+
                         {% else %}
                         <img class="article-cover fallback" src="/assets/Compact_Blurple_{{ district }}.png"
                             alt="Geen afbeelding beschikbaar">

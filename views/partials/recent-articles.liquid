@@ -14,13 +14,13 @@
 
                 <picture>
                     <source type="image/avif"
-                        srcset="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&format=avif">
+                        srcset="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&format=avif&width=300&quality=80">
 
                     <source type="image/webp"
-                        srcset="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&format=webp">
+                        srcset="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&format=webp&width=300&quality=80">
 
-                    <img src="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?width=100&height=100"
-                        width="{{ story.cover.width }}" height="{{ story.cover.height }}">
+                    <img src="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?width=300&quality=80"
+                        width=" {{ story.cover.width }}" height="{{ story.cover.height }}">
                 </picture>
 
 
