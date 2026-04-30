@@ -300,6 +300,10 @@ select {
 
 
 /* BUTTONS */
+button {
+    transition: .3s;
+}
+
 .primary-button {
     padding: 0.5em 1.2em;
     background-color: var(--primary-color);
@@ -310,10 +314,6 @@ select {
     font-weight: bold;
     cursor: pointer;
 }
-
-/* .primary-button:active {
-    background-color: green;
-} */
 
 button:disabled {
     /* background-color: var(--primary-color-lighter); */
