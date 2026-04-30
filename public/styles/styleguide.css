@@ -3,6 +3,30 @@
     src: url('../fonts/BuurtCampusArial-Bold.ttf') format('truetype');
 }
 
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+}
+
+/* ::view-transition-group(root) {
+    animation-duration: 2s;
+} */
+
+.article-cover {
+    view-transition-name: var(--vt);
+    /* view-transition-class: image; */
+}
+
+.single-article-cover {
+    view-transition-name: var(--vt);
+}
+
+::view-transition-group(image-cover) {
+    animation-duration: 3s;
+}
+
+
 * {
     margin: 0;
     padding: 0;

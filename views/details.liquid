@@ -20,12 +20,13 @@
 
             <img class="single-article-cover"
                 src="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?height=700&quality=80"
-                width="{{ story.cover.width }}" height="{{ story.cover.height }}">
+                width="{{ story.cover.width }}" height="{{ story.cover.height }}"
+                style="--vt:image-cover-{{ story.id }}">
         </picture>
 
         {% else %}
         <img class="single-article-cover fallback" src="/assets/Compact_Blurple_{{ district }}.png"
-            alt="Geen afbeelding beschikbaar">
+            alt="Geen afbeelding beschikbaar" style="--vt:image-cover-{{ story.id }}">
         {% endif %}
 
         <div class="article-content">

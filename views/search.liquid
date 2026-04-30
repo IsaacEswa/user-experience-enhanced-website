@@ -33,11 +33,12 @@
 
                             <img class="article-cover"
                                 src="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?width=300&quality=80"
-                                width="{{ story.cover.width }}" height="{{ story.cover.height }}" loading="lazy">
+                                width="{{ story.cover.width }}" height="{{ story.cover.height }}" loading="lazy"
+                                style="--vt:image-cover-{{ story.id }}">
                         </picture>
                         {% else %}
                         <img class="article-cover fallback" src="/assets/Compact_Blurple_{{ district }}.png"
-                            alt="Geen afbeelding beschikbaar">
+                            alt="Geen afbeelding beschikbaar" style="--vt:image-cover-{{ story.id }}">
                         {% endif %}
 
                         <div class="article-card-content">
