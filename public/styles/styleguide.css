@@ -9,13 +9,8 @@
     }
 }
 
-/* ::view-transition-group(root) {
-    animation-duration: 2s;
-} */
-
 .article-cover {
     view-transition-name: var(--vt);
-    /* view-transition-class: image; */
 }
 
 .single-article-cover {
@@ -23,7 +18,12 @@
 }
 
 ::view-transition-group(image-cover) {
-    animation-duration: 3s;
+    animation-duration: 5s;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
 }
 
 
