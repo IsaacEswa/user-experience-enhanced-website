@@ -594,7 +594,6 @@ header::after {
     }
 }
 
-
 .share-socials::before {
     content: "";
     position: absolute;
@@ -720,32 +719,22 @@ header::after {
     }
 }
 
-/* .highlight {
-    opacity: 1;
-    animation: fade-out 3s ease-out;
-}
-
-@keyframes fade-out {
-    100% {
-        opacity: 0;
-    }
-} */
-
-.recent-comments-container li:first-child .single-comment {
+.recent-comments-container li:last-child .single-comment {
     opacity: 0;
     transform: translateY(8px);
-    animation: fadeIn 300ms ease-out forwards;
+    animation: fadeIn .8s ease-out forwards;
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(8px);
+        transform: translateY(1em);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
+
     }
 }
 
