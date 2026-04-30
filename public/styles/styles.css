@@ -870,3 +870,24 @@ footer::before {
         font-weight: normal;
     }
 }
+
+
+/* .article-targetgroup.algemeen {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+.article-targetgroup.nieuw-west {
+    background-color: var(--light-background);
+    color: var(--dark-text);
+}
+
+.article-targetgroup.zuidoost {
+    background-color: var(--primary-color-lighter);
+    color: black;
+}
+
+.article-targetgroup.oost {
+    background-color: var(--light-background);
+    color: var(--dark-text);
+} */

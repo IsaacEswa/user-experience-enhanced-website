@@ -30,11 +30,29 @@
 
         <div class="article-content">
             <div class="article-information">
-                <time class="article-date" datetime="{{ story.date }}">{{ story.date | date: "%d-%m-%Y" }}</time>
+
+                {% if story.target_group %}
+                <span class="article-targetgroup">{{ story.target_group | capitalize }}</span>
+                {% else %}
+                <span class="article-targetgroup">Iedereen</span>
+                {% endif %}
+
                 <svg width="5" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512"><!--!Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
                     <path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0z" />
                 </svg>
+
+                {% if story.date %}
+                <time class="article-date" datetime="{{ story.date }}">{{ story.date | date: "%d-%m-%Y" }}</time>
+                {% else %}
+                <span>Datum onbekend</span>
+                {% endif %}
+
+                <svg width="5" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"><!--!Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                    <path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0z" />
+                </svg>
+
                 <span>{{ district | capitalize }}</span>
             </div>
 
