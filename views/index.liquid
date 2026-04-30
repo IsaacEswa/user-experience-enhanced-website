@@ -64,6 +64,11 @@
 
 
                         <div class="article-card-content">
+                            {% if story.target_group %}
+                            <span class="article-targetgroup">{{ story.target_group | capitalize }}</span>
+                            {% else %}
+                            <span class="article-targetgroup">Iedereen</span>
+                            {% endif %}
                             <time class="article-date" datetime="{{ story.date }}">{{ story.date | date: "%d-%m-%Y"
                                 }}</time>
                             <h3 class="article-title">{{ story.title }}</h3>
